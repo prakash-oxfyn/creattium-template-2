@@ -26,8 +26,13 @@
     return;
   }
 
-  var TITLES = ["Lumenous", "Starlight Burst", "Captain Splash"];
-  var TITLE_IMAGES = ["./img/logo1.png", "img/logo2.png"];
+  var TITLES = [
+    "Game Design",
+    "Player Experience",
+    "Creative Direction",
+    "Production Leadership",
+  ];
+  var TITLE_IMAGES = ["./img/whatwedo/gamedesign_text.png", "./img/whatwedo/player_text.png", "./img/whatwedo/creative_text.png", "./img/whatwedo/production_text.png"];
 
   var START_INDEX = 0; // Which card starts centered (0 = first card).
   var MAX_CARD_ROT = 16; // Maximum rotation (deg) applied away from center.

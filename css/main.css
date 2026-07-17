@@ -97,7 +97,9 @@ video {
 */
 
 :root {
-  --primary_color: #ff2678;
+  --primary_color: #e3253f;
+  /* #ff1e00 */
+  --theme: #ff1e00;
   --orbit-card-width: 414px;
   --orbit-card-height: 449px;
 }
@@ -466,8 +468,9 @@ textarea {
 
 @media only screen and (max-width: 767px) {
   .partner_logo_box {
-    width: 250px;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    min-height: 90px;
     padding: 20px;
   }
 
@@ -482,8 +485,9 @@ textarea {
 
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
   .partner_logo_box {
-    width: 300px;
-    height: 300px;
+    width: calc(50% - 10px);
+    height: auto;
+    min-height: 110px;
     padding: 25px;
   }
 
@@ -498,8 +502,9 @@ textarea {
 
 @media only screen and (min-width: 1200px) {
   .partner_logo_box {
-    width: 400px;
-    height: 400px;
+    width: calc(25% - 15px);
+    height: auto;
+    min-height: 130px;
     padding: 30px;
   }
 
@@ -731,16 +736,27 @@ nav .mobile_menu a:visited {
 }
 
 .landing {
+  position: relative;
   height: 100vh;
   min-height: 100vh;
-  padding: 15vh 10% 0% 10%;
+  padding: 15vh 10% 0 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: fixed no-repeat right center url("../img/bg_logo_blur.svg");
-  background-size: 30%;
   text-align: center;
+  overflow: hidden;
+}
+
+.landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/logo/creattium-logo.png") no-repeat right center;
+  background-size: 30%;
+  opacity: .6;
+  /* transform: scale(1.2); */
+  filter: blur(10px);
 }
 
 .landing .title {
@@ -764,7 +780,7 @@ nav .mobile_menu a:visited {
 }
 
 .primary_pink {
-  color: #ff2678 !important;
+  color: #e3253f !important;
   padding-top: 30px;
 }
 
@@ -776,7 +792,7 @@ nav .mobile_menu a:visited {
 .test {
   overflow: hidden;
   /* background: linear-gradient(90deg, #000, #fff, #000); */
-  background: linear-gradient(90deg, #ff2678, #fff, #ff2678);
+  background: linear-gradient(90deg, #e3253f, #fff, #e3253f);
   background-repeat: no-repeat;
   background-size: 80%;
   animation: animate 2s linear infinite;
@@ -1055,9 +1071,9 @@ nav .mobile_menu a:visited {
 .partners {
   background-color: #000;
   height: 100%;
-  padding: 0 10%;
+  padding: 5vh 10%;
   width: 100%;
-  min-height: 45vh;
+  min-height: 55vh;
 }
 
 .partners .partners_title {
@@ -1073,20 +1089,44 @@ nav .mobile_menu a:visited {
   text-transform: uppercase;
 }
 
+.partners .partners_body {
+  color: #fff;
+  opacity: 0.85;
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.5em;
+  max-width: 60ch;
+  padding-top: 2vh;
+}
+
 .partners .partners_logos {
   display: flex;
   justify-content: center;
-  gap: 0px;
+  gap: 20px;
   flex-wrap: wrap;
   padding-top: 50px;
+  padding-bottom: 5vh;
 }
 
 .partners .partner_logo_box {
-  background-color: #000000;
-  border-radius: 50px;
+  background-color: #0d0d0d;
+  border: 1px solid rgba(255, 38, 120, 0.3);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.partners .partner_logo_box span {
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 0.95em;
+  line-height: 1.4em;
+  text-transform: uppercase;
 }
 
 .partners .partner_logo_box img {
@@ -1243,6 +1283,20 @@ nav .mobile_menu a:visited {
 /* .contact_form .submit img, .work .send img{
   height: 40%;
 } */
+
+.form_status {
+  font-family: Inter, sans-serif;
+  font-size: 0.9em;
+  min-height: 1.2em;
+}
+
+.form_status.success {
+  color: var(--primary_color);
+}
+
+.form_status.error {
+  color: #ff5c5c;
+}
 
 .footer {
   background-color: #000;
@@ -1419,15 +1473,19 @@ nav .mobile_menu a:visited {
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-bg#game1 {
-  background-image: url("../img/bg1.jpg");
+  background-image: linear-gradient(135deg, #0f172a, #020617);
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-bg#game2 {
-  background-image: url("../img/bg2.jpg");
+  background-image: linear-gradient(135deg, #0f172a, #4c1d95 140%);
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-bg#game3 {
-  background-image: url("../img/bg3.jpg");
+  background-image: linear-gradient(135deg, #1a0f3a, #ff1e00 140%);
+}
+
+.card_dial_wrapper .orbit-card .orbit-card-bg#game4 {
+  background-image: linear-gradient(135deg, #0f172a, #ff1e00 140%);
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-support-visual {
@@ -1528,23 +1586,26 @@ nav .mobile_menu a:visited {
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-meta {
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-meta {
-  border-bottom-right-radius: 22px;
-  border-bottom-left-radius: 22px;
+  border-radius: 22px;
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-meta .meta_title {
-  font-size: clamp(18px, 2.5vw, 26px);
+  font-family: ir_title, sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(20px, 2.6vw, 28px);
 }
 
 .card_dial_wrapper .orbit-card .orbit-card-meta .meta_info {
   display: block;
-  font-size: clamp(14px, 1.5vw, 18px);
-  opacity: 0.7;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.4;
+  opacity: 0.85;
   font-weight: 400;
+  font-family: Inter, sans-serif;
 }
 
 @media (max-width: 900px) {
