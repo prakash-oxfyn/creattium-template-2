@@ -328,7 +328,11 @@ textarea {
   }
 
   .landing .title {
-    font-size: min(11vmax, 94px);
+    font-size: min(7vmax, 94px);
+  }
+
+  .landing .subtitle {
+    font-size: min(5vmax, 94px);
   }
 
   .about .title {
@@ -399,7 +403,11 @@ textarea {
   }
 
   .landing .title {
-    font-size: min(11vmax, 180px);
+    font-size: min(7vmax, 180px);
+  }
+
+  .landing .subtitle {
+    font-size: min(3vmax, 94px);
   }
 
   .about .content_container {
@@ -723,10 +731,13 @@ nav .mobile_menu a:visited {
 }
 
 .landing {
-  /* position: relative; */
-  height: 100%;
+  height: 100vh;
+  min-height: 100vh;
   padding: 15vh 10% 0% 10%;
-  /* padding-top: 20vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: fixed no-repeat right center url("../img/bg_logo_blur.svg");
   background-size: 30%;
   text-align: center;
@@ -736,12 +747,16 @@ nav .mobile_menu a:visited {
   font-family: ir_title, sans-serif;
   font-style: normal;
   font-weight: 400;
-  /* font-size: 220px; */
-  /* font-size: 13.5em; */
-  /* font-size: 11vmax; */
-  line-height: 11.5vmax;
-  /* or 100% */
+  line-height: 7.5vmax;
   text-transform: uppercase;
+}
+
+.landing .subtitle {
+  margin-top: 3vh;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  font-weight: 900;
+  line-height: 1.4;
 }
 
 .white {
